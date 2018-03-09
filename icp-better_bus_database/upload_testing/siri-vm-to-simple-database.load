@@ -1,0 +1,18 @@
+LOAD CSV
+    FROM stdin WITH ENCODING utf8
+       HAVING FIELDS
+       (
+          info
+       )
+    INTO postgresql:///acp?siri_vm_simple_test
+       TARGET COLUMNS
+       (
+          info
+       )
+    WITH drop indexes,
+         fields optionally enclosed by '"',
+         fields escaped by double-quote,
+         fields terminated by ','
+
+    SET work_mem to '32 MB', maintenance_work_mem to '64 MB';
+
