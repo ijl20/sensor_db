@@ -1,0 +1,4 @@
+wheel
+
+psycopg2-binary
+
