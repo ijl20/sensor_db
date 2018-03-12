@@ -26,6 +26,21 @@ We will use a set of standard queries relevant to our use case, to assess perfor
 
 ## Standard sensor data queries
 
+The 'big box' is (52.11, -0.1)..(52.3, .25)
+
+The 'small box' is (0.08008, 52.205029)..(0.108576, 52.215548)
+
+#### Big box, one day and "VehicleRef"
+
+```
+select info from sensor_data_1 where
+cast(info->>'Latitude' as float) > 52.11 and cast(info->>'Latitude' as float) < 52.3 and
+cast(info->>'Longitude' as float) > -0.1 and cast(info->>'Longitude' as float) < 0.25 and
+to_timestamp(info->>'RecordedAtTime', 'YYYY-MM-DDTHH:MI:SS') >= '2017-12-11 00:00:00+00:00' and
+to_timestamp(info->>'RecordedAtTime', 'YYYY-MM-DDTHH:MI:SS') < '2017-12-12 00:00:00+00:00' and
+info->>'VehicleRef' = 'WP-106';
+```
+
 ### Table: sensor_data_1
 
 #### Table information
