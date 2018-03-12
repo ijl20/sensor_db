@@ -1,4 +1,6 @@
 wheel
 
-psycopg2-binary
+psycopg2>=2.7,<2.8 --no-binary psycopg2
+
+#psycopg2
 
